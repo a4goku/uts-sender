@@ -1,0 +1,38 @@
+server:
+  context-path: /sender
+  port: 8001
+
+transfer:
+  host: 127.0.0.1
+  port: 8765
+
+## spring配置
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+      default-property-inclusion: NON_NULL
+
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://localhost:3306/uts-sender?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useUnicode=true
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 1234
+
+mybatis:
+  type-aliases-package: uts.sender
+  mapper-locations: classpath:uts/sender/mapping/*.xml
+
+logging:
+  level:
+    tk.mybatis: TRACE
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=sountSql
