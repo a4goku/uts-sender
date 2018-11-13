@@ -3,7 +3,7 @@ package uts.sender.mapper;
 import uts.sender.config.database.BaseMapper;
 import uts.sender.entity.TradeDetail;
 
-public interface TradeDetailMapper extends BaseMapper<TradeDetail> {
+public interface TradeDetailMapper{
     int deleteByPrimaryKey(String id);
 
     int insert(TradeDetail record);
