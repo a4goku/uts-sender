@@ -30,4 +30,13 @@ public class TradeDetailService {
 
         cf.channel().writeAndFlush(req);
     }
+
+    public int updateStatusById(String id){
+        TradeDetail td = tradeDetailMapper.selectByPrimaryKey(id);
+        td.setStatus("1");
+        if (td != null) {
+            return tradeDetailMapper.updateByPrimaryKey(td);
+        }
+        return 0;
+    }
 }

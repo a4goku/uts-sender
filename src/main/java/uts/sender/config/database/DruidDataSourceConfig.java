@@ -82,6 +82,7 @@ public class DruidDataSourceConfig {
         ds.setConnectionProperties(druidSettings.getConnectionProperties());
 
         logger.info("druid datasource config : {}", ds);
+        System.err.println(ds.getUrl());
         return ds;
     }
 
